@@ -1,0 +1,41 @@
+{
+  "experiment": {
+    "name": "example_experiment",
+    "seed": 2021,
+    "device": "auto",
+    "checkpoints": "./checkpoints",
+    "outputs": "./outputs"
+  },
+  "data": {
+    "name": "example_csv",
+    "root_path": "./dataset",
+    "data_path": "example.csv",
+    "features": "M",
+    "target": "OT",
+    "freq": "h",
+    "seq_len": 96,
+    "label_len": 48,
+    "pred_len": 96,
+    "scale": true,
+    "num_workers": 0
+  },
+  "model": {
+    "name": "ExampleLinear",
+    "enc_in": 7,
+    "params": {
+      "individual": false
+    }
+  },
+  "train": {
+    "epochs": 10,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "optimizer": "adam",
+    "loss": "mse",
+    "patience": 3,
+    "lradj": "type1"
+  },
+  "eval": {
+    "metrics": ["mse", "mae"]
+  }
+}
